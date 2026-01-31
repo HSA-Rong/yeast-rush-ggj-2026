@@ -190,5 +190,18 @@ public class Contaminant : MonoBehaviour
             }
         }
     }
+
+    void OnEnable()
+    {
+        if (EnemyVisibilityManager.Instance != null)
+            EnemyVisibilityManager.Instance.RegisterEnemy(this);
+    }
+
+    void OnDisable()
+    {
+        if (EnemyVisibilityManager.Instance != null)
+            EnemyVisibilityManager.Instance.UnregisterEnemy(this);
+    }
+
 }
 
