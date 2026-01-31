@@ -58,7 +58,6 @@ public class ShootEnzymes : MonoBehaviour
         else
         for (int i = 0; i < results.Count; i++)
         {
-            Debug.Log(results.Count.ToString() + " <-- Anzahl gefundene Controller");
             var activateAction = results[i];
             float moveValue = activateAction.ReadValue<float>();
 
