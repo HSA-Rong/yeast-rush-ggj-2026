@@ -15,17 +15,16 @@ public class SugarSpawner : MonoBehaviour
     public GameObject sugarPrefab;
 
     [Header("Spawn Settings")]
-    public int targetCount = 12;
-
-    // float minReachDistance = 0.35f;
+    public int targetCount = 20;
+    
     [Tooltip("Min distance from player.")]
     public float minRadius = 0.35f;
 
     [Tooltip("Max distance from player.")]
-    public float maxRadius = 1.5f;
+    public float maxRadius = 1.4f;
 
     [Tooltip("Spawn height offset relative to playerRoot.")]
-    public Vector2 heightRange = new Vector2(0.3f, 1.5f);
+    public Vector2 heightRange = new Vector2(-0.6f, 0.4f);
 
     [Tooltip("If too close to the player, respawn.")]
     public float respawnIfCloserThan = 0.2f;
