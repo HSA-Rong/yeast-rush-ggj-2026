@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 658564139195501442}
   - component: {fileID: 1363313140955773011}
   - component: {fileID: 610708557829535140}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 601608798333873348}
   - component: {fileID: 3754154169134970507}
   - component: {fileID: 5876280121230441947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sugar
   m_TagString: Sugar
   m_Icon: {fileID: 0}
@@ -204,7 +204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6462857278532674995}
   - component: {fileID: 327625871137039929}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sugar_COL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
