@@ -7,8 +7,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Autor: Rong
-/// Time: 31.01.2026
+/// Toggles Developer Mode via an in-game menu and manages the developer workflow scenes.
+/// When enabled, ensures required scenes (Persistent, Environment, and Programmable) are loaded.
+/// When disabled, returns to the normal runtime setup.
 /// </summary>
 
 public static class ModuleDevMode
@@ -135,7 +136,7 @@ public static class ModuleDevMode
             {
                 EditorUtility.DisplayDialog(
     "Saving Core Scene Blocked",
-    "You are currently in 'Personal Scene Development Mode', where modifying or saving Persistent or House_Main is not allowed.\n" +
+    "You are currently in 'Personal Scene Development Mode', where modifying or saving Persistent or MainScene is not allowed.\n" +
     "Please make your changes in your personal or module scenes instead.",
     "OK");
             }
