@@ -194,6 +194,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  absorbSfx: {fileID: 8300000, guid: 40feab4b3592c6842983f09d14f597bd, type: 3}
 --- !u!1 &5992860850341120487
 GameObject:
   m_ObjectHideFlags: 0

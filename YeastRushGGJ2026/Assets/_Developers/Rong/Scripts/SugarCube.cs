@@ -26,6 +26,9 @@ public class SugarCube : MonoBehaviour
     private Vector3 _startScale;
     private float _seed;
 
+    [Header("Audio")]
+    public AudioClip absorbSfx;
+
     void Awake()
     {
         _startPos = transform.position;
@@ -64,6 +67,11 @@ public class SugarCube : MonoBehaviour
         {
             if (other.CompareTag(absorberTags[i]) || other.transform.root.CompareTag(absorberTags[i]))
             {
+                if (absorbSfx != null)
+                {
+                    AudioSource.PlayClipAtPoint(absorbSfx, transform.position, 0.8f);
+                }
+
                 StartCoroutine(AbsorbRoutine());
                 return;
             }
