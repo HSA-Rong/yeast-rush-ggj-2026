@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     public float minRadius = 0.8f;
     public float maxRadius = 1.8f;
-    public Vector2 heightRange = new Vector2(0.2f, 1.8f);
+    public Vector2 heightRange = new Vector2(-0.6f, 0.4f);
 
     private readonly List<Contaminant> _alive = new();
 
