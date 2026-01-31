@@ -39,23 +39,26 @@ public class ShootEnzymes : MonoBehaviour
         {
             // Find controllers in the scene - warning: ids can change depending on load order
             leftController = GameObject.Find("Left Controller");
-            if (leftController == null)
-                Debug.Log("-------There is no leftcontroller.");
+            
             if (leftController != null)
             {
+                // Debug.Log("We found the Left Controller.");
                 leftControllerIndex = lastControllerIndex;
+                Debug.Log(leftControllerIndex.ToString() + " <--- Left Controller");
                 lastControllerIndex++;
             }
             rightController = GameObject.Find("Right Controller");
             if (rightController != null)
             {
                 rightControllerIndex = lastControllerIndex;
+                Debug.Log(rightControllerIndex.ToString() + " <--- Right Controller");
                 lastControllerIndex++;
             }
         }
         else
         for (int i = 0; i < results.Count; i++)
         {
+            Debug.Log(results.Count.ToString() + " <-- Anzahl gefundene Controller");
             var activateAction = results[i];
             float moveValue = activateAction.ReadValue<float>();
 
