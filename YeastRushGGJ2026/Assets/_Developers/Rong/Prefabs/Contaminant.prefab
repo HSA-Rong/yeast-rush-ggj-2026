@@ -76,20 +76,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Contaminant
   wanderRadius: 1.8
-  moveSpeed: 0.6
-  turnSpeed: 3.5
-  targetChangeInterval: 1.2
   verticalWanderRadius: 0.8
+  moveSpeed: 0.6
+  turnSpeed: 2
+  targetChangeInterval: 1.6
   floatAmplitude: 0.05
   floatFrequency: 1.1
   sugarsToReproduce: 3
-  sugarSeekRadius: 2
+  sugarSeekRadius: 2.2
   sugarScanInterval: 0.25
   sugarAttraction: 0.75
-  sugarApproachSpeedMultiplier: 0.8
+  sugarApproachSpeedMultiplier: 0.85
   sugarLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   sugarTag: Sugar
 --- !u!1 &8356917290131751786
 GameObject:

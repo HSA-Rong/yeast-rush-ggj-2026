@@ -11,13 +11,11 @@ public class Contaminant : MonoBehaviour
 
     [Header("Wander")]
     private Transform playerRoot;
-    public float wanderRadius = 1.5f;
-    public float moveSpeed = 0.6f;
-    public float turnSpeed = 3.0f;
-    public float targetChangeInterval = 1.2f;
-
-    [Header("3D Bounds")]
+    public float wanderRadius = 1.8f;
     public float verticalWanderRadius = 0.8f; // y
+    public float moveSpeed = 0.6f;
+    public float turnSpeed = 2.0f;
+    public float targetChangeInterval = 1.6f;
 
     [Header("Float")]
     public float floatAmplitude = 0.05f;
@@ -33,10 +31,10 @@ public class Contaminant : MonoBehaviour
     private int _eaten;
 
     [Header("Sugar Seek")]
-    public float sugarSeekRadius = 2.0f;
+    public float sugarSeekRadius = 2.2f;
     public float sugarScanInterval = 0.25f;
     public float sugarAttraction = 0.75f;         // 0-1, 1 = seek, 0 = random
-    public float sugarApproachSpeedMultiplier = 0.8f; // speed like get closer to sugar
+    public float sugarApproachSpeedMultiplier = 0.85f; // speed like get closer to sugar
     public LayerMask sugarLayerMask = ~0;
     public string sugarTag = "Sugar";
 
