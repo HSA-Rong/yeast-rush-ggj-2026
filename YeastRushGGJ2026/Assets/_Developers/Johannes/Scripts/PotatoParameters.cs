@@ -5,10 +5,8 @@ using VIVE.OpenXR;
 public class PotatoParameters : MonoBehaviour
 {
 
-    [SerializeField]
-    private float pulseTimer = 1.0f;
-    [SerializeField] 
-    private Vector3 shaderScale = new Vector3(0.5f, 0.5f, 0.5f);
+    public float pulseTimer = 1.0f;
+    public Vector3 shaderScale = new Vector3(0.5f, 0.5f, 0.5f);
 
     private float lastPulseTimerValue = 0.0f;
     private Vector3 lastShaderScaleValue = new Vector3();

@@ -71,6 +71,15 @@ public class SugarCube : MonoBehaviour
                 {
                     AudioSource.PlayClipAtPoint(absorbSfx, transform.position, 0.8f);
                 }
+                foreach (Transform child in Camera.main.transform)
+                {
+                    if (child.CompareTag("Potato"))
+                    {
+                        Potato potatoScript = child.GetComponent<Potato>();
+                        potatoScript.hasEatenSugar = true;
+                        break;
+                    }
+                }
 
                 StartCoroutine(AbsorbRoutine());
                 return;

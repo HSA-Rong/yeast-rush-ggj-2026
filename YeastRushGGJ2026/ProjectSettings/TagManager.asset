@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Sugar
   - MultiSugar
+  - GameManager
+  - Potato
   layers:
   - Default
   - TransparentFX
