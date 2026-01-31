@@ -416,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1280071837914813202, guid: 3cf11010ffd473b4bad5e4385763c309, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1436222131705143146, guid: 3cf11010ffd473b4bad5e4385763c309, type: 3}
       propertyPath: m_Mesh
@@ -426,6 +426,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 4711208715938537054, guid: 60e6f8f0ea51f814fb68b94942119999, type: 3}
+    - target: {fileID: 3575387273709041803, guid: 3cf11010ffd473b4bad5e4385763c309, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ecdf5c97402378b47bc0309efb8ed71e, type: 2}
     - target: {fileID: 3615567894026883194, guid: 3cf11010ffd473b4bad5e4385763c309, type: 3}
       propertyPath: m_LocalScale.x
       value: 1000
@@ -482,6 +486,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5225409425802131077, guid: 3cf11010ffd473b4bad5e4385763c309, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ecdf5c97402378b47bc0309efb8ed71e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
