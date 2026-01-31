@@ -26,6 +26,10 @@ public class Potato : MonoBehaviour
     private float startPotatoPulseTimer;
     PotatoParameters potatoParams;
 
+    [Header("Fart")]
+    public GameObject fartBubblePrefab;
+    public AudioClip fartSfx;
+
     void Start()
     {
         camTransform = Camera.main.transform;
@@ -60,7 +64,14 @@ public class Potato : MonoBehaviour
                 hasEatenSugar = false; // reset
                 startOffset = currentOffset; // save current offset as start offset for next time
                 timer = -1f;
-            }
+                // fire a fart bubble + sound
+                GameObject fartBubble = Instantiate(fartBubblePrefab, transform.position + transform.forward, Quaternion.identity);
+                fartBubble.GetComponent<Rigidbody>().linearVelocity = Camera.main.transform.forward * 2f; // Adjust speed as needed
+                if (fartSfx != null)
+                {
+                    AudioSource.PlayClipAtPoint(fartSfx, transform.position, 0.8f);
+                }
+             }
         }
         // I want that the object always is at 1 m below the camera, but Y-Axis facing upwards
         targetPosition = camTransform.position - currentOffset;

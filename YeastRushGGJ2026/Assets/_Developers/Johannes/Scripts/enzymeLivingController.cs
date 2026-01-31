@@ -2,10 +2,14 @@ using UnityEngine;
 
 public class enzymeLivingController : MonoBehaviour
 {
+    [HideInInspector]
     public GameObject gameObjectHit = null;
 
     [SerializeField]
     private float livingTime = 2f;
+
+    [SerializeField]
+    private bool reactToExternalStimuli = true; // used to control if this script reacts to collisions (enzyme) or not (fart b)
 
     float startTime = 0f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -26,7 +30,7 @@ public class enzymeLivingController : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "MultiSugar")
+        if (reactToExternalStimuli && collision.gameObject.tag == "MultiSugar")
         {
             gameObjectHit = collision.gameObject;
             Destroy(this.gameObject);   

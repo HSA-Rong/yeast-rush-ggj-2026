@@ -23,14 +23,14 @@ public class PotatoParameters : MonoBehaviour
     {
         if (pulseTimer != lastPulseTimerValue)
         {
-            Debug.Log("Change1");
+            //Debug.Log("Change1");
             mat.SetFloat("_PotatoPulseTimer", pulseTimer);
             lastPulseTimerValue = pulseTimer;
         }
 
         if (shaderScale != lastShaderScaleValue)
         {
-            Debug.Log("Change2");
+            //Debug.Log("Change2");
             mat.SetVector("_PotatoShaderScale", shaderScale);
             lastShaderScaleValue = shaderScale;
         }        
