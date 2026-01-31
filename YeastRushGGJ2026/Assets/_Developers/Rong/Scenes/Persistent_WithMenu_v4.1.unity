@@ -994,6 +994,14 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Potato
       objectReference: {fileID: 0}
+    - target: {fileID: 7539633986852940587, guid: 57bcd39fff9e4314e914469423379203, type: 3}
+      propertyPath: fartSfx
+      value: 
+      objectReference: {fileID: 8300000, guid: b68f71e99c64eca4fa34c13fd6064cf7, type: 3}
+    - target: {fileID: 7539633986852940587, guid: 57bcd39fff9e4314e914469423379203, type: 3}
+      propertyPath: fartBubblePrefab
+      value: 
+      objectReference: {fileID: 8256184036853045840, guid: 05451aa9a07b4f74e8a59f934bf49117, type: 3}
     - target: {fileID: 7783604537172539631, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: pulseTimer
       value: 2
