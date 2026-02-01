@@ -354,6 +354,10 @@ MonoBehaviour:
   mainSceneName: MainScene
   gameplaySceneName: GameplayScene
   mainEnvironmentRoot: {fileID: 0}
+  showOnlyDuringGameplay:
+  - {fileID: 957907545}
+  - {fileID: 1252260339}
+  - {fileID: 1468385565}
 --- !u!4 &317644428 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 202364688, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
@@ -585,6 +589,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
+--- !u!1 &957907545 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4495403859215676505, guid: 57bcd39fff9e4314e914469423379203, type: 3}
+  m_PrefabInstance: {fileID: 1493577259}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1046189904
 GameObject:
   m_ObjectHideFlags: 0

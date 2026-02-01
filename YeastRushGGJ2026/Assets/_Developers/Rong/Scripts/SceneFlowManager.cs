@@ -14,6 +14,10 @@ public class SceneFlowManager : MonoBehaviour
     [Tooltip("Root object in Main scene to hide/show (assign at runtime or via finder).")]
     public GameObject mainEnvironmentRoot;
 
+    [Header("Persistent Visibility")]
+    [Tooltip("Objects in Persistent scene that should be shown only during Gameplay.")]
+    public GameObject[] showOnlyDuringGameplay;
+
     private bool _loading;
     private bool _gameplayLoaded;
 
@@ -23,6 +27,12 @@ public class SceneFlowManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    void Start()
+    {
+        SetGameplayOnlyObjectsVisible(false);
+    }
+
 
     public void EnterGameplay()
     {
@@ -41,7 +51,8 @@ public class SceneFlowManager : MonoBehaviour
         _loading = true;
         
         SetMainEnvironmentVisible(false);
-        
+        SetGameplayOnlyObjectsVisible(true);
+
         var op = SceneManager.LoadSceneAsync(gameplaySceneName, LoadSceneMode.Additive);
         yield return op;
 
@@ -62,6 +73,8 @@ public class SceneFlowManager : MonoBehaviour
         yield return op;
 
         _gameplayLoaded = false;
+
+        SetGameplayOnlyObjectsVisible(false);
 
         Scene mainScene = SceneManager.GetSceneByName(mainSceneName);
         if (mainScene.IsValid())
@@ -90,5 +103,17 @@ public class SceneFlowManager : MonoBehaviour
     {
         mainEnvironmentRoot = root;
     }
+
+    public void SetGameplayOnlyObjectsVisible(bool visible)
+    {
+        if (showOnlyDuringGameplay == null) return;
+
+        for (int i = 0; i < showOnlyDuringGameplay.Length; i++)
+        {
+            var go = showOnlyDuringGameplay[i];
+            if (go != null) go.SetActive(visible);
+        }
+    }
+
 }
 
