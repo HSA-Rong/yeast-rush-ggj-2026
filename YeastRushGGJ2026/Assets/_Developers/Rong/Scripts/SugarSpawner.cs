@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
@@ -36,6 +37,11 @@ public class SugarSpawner : MonoBehaviour
     public GameManager_Storyline_UI gameManager;
 
     private readonly List<SugarCube> _alive = new();
+
+    [SerializeField]
+    private float cooldownTimer = 0.5f;
+    private float lastCountTime = 0f;
+
 
     void Start()
     {
@@ -102,17 +108,25 @@ public class SugarSpawner : MonoBehaviour
 
     void HandleAbsorbed(SugarCube cube)
     {
+        /*Debug.Log("Handle absorbed sugar cube.");
+        string s1 = gameManager == null ? "null" : "not null";
+        string s2 = cube == null ? "null" : "not null"; 
+        Debug.Log("gameManager: " + s1 + "; cube: " + s2);*/
+
+        if (gameManager != null && lastCountTime + cooldownTimer<= Time.time)
+        {
+            //Debug.Log("-------Sugar spawner try to increase point");
+            gameManager.IncreasePoints(1);
+            lastCountTime = Time.time; 
+            //Debug.Log("-------Sugar spawner increase point successfully");
+        }
+
         if (cube != null)
         {
             cube.OnAbsorbed -= HandleAbsorbed;
             _alive.Remove(cube);
         }
 
-        if (gameManager != null)
-        {
-            gameManager.IncreasePoins(1);
-            Debug.Log("-------Sugar spawner increase point successfully");
-        }
     }
 
     Vector3 GetSpawnPos()

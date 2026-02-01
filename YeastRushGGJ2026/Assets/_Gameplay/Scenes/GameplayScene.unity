@@ -204,7 +204,8 @@ MonoBehaviour:
   heightRange: {x: -0.6, y: 0.4}
   respawnIfCloserThan: 0.2
   keepOnScreenRing: 1
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 334002038}
+  cooldownTimer: 0.5
 --- !u!114 &326723551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +225,8 @@ MonoBehaviour:
   heightRange: {x: -0.6, y: 0.4}
   respawnIfCloserThan: 0.2
   keepOnScreenRing: 1
-  gameManager: {fileID: 334002038}
+  gameManager: {fileID: 0}
+  cooldownTimer: 0.5
 --- !u!1001 &334002029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -344,6 +346,14 @@ PrefabInstance:
     - target: {fileID: 6365312527475090667, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677469419868416897, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 6677469419868416897, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0117
       objectReference: {fileID: 0}
     - target: {fileID: 6822645678463941781, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: m_text

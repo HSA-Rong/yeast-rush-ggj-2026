@@ -37,11 +37,17 @@ public class GameManager_Storyline_UI : MonoBehaviour
 
     void Start()
     {
-        gameS = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
-        gameS.storylineS = this.GetComponent<GameManager_Storyline_UI>(); // reference this script in the manager
-        gameS.PlayNextStep += NextStep; // assign the next step display to the event in the manager
-        //gameS.UpdateCurrScore += IncreasePoins;
-
+        GameObject go = GameObject.FindWithTag("GameManager");
+        if (go != null)
+        { 
+            gameS = go.GetComponent<GameManager>();
+        }
+        if (gameS != null)
+        {
+            gameS.storylineS = this.GetComponent<GameManager_Storyline_UI>(); // reference this script in the manager
+            gameS.PlayNextStep += NextStep; // assign the next step display to the event in the manager
+            //gameS.UpdateCurrScore += IncreasePoins;
+        }
         startTime = Time.realtimeSinceStartup;
         audioS = this.gameObject.AddComponent<AudioSource>();
     }
@@ -73,10 +79,10 @@ public class GameManager_Storyline_UI : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha1))
             NextStep(); // Controls.Player.keyboard.performed += PlayNextStepEvent();
         if(Input.GetKeyDown(KeyCode.Alpha2))
-           IncreasePoins(); // Controls.Player.keyboard.performed += PlayNextStepEvent();
+           IncreasePoints(); // Controls.Player.keyboard.performed += PlayNextStepEvent();
         
     }
-    public void IncreasePoins(int value = 1) //int value)
+    public void IncreasePoints(int value = 1) //int value)
     {
         points+= value;
         Debug.Log("increase points");
