@@ -33,8 +33,8 @@ public class GameManager_Storyline_UI : MonoBehaviour
     private GameManager gameS;
     public bool gameFinished = false;
     public GameObject gameFinishedDefeatedContainer; // stores a pop up info when game ends badly
-    public GameObject gameFinishedWinnerContainer; // player succeeded
-    
+    public GameObject rewardInfo;
+
     void Start()
     {
         gameS = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
@@ -44,6 +44,11 @@ public class GameManager_Storyline_UI : MonoBehaviour
 
         startTime = Time.realtimeSinceStartup;
         audioS = this.gameObject.AddComponent<AudioSource>();
+    }
+    void OnAwake()
+    {
+        rewardInfo.SetActive(false);
+        rewardInfo.SetActive(true);
     }
 
     void Update()
@@ -76,6 +81,8 @@ public class GameManager_Storyline_UI : MonoBehaviour
         points+= value;
         Debug.Log("increase points");
         pointDisplay.text = points.ToString();
+        rewardInfo.SetActive(false);
+        rewardInfo.SetActive(true);
     }
     public void IncreaseTime(int value = 1)
     {

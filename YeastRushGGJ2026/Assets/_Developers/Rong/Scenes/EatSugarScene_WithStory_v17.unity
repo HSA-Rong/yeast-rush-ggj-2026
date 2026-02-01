@@ -171,7 +171,6 @@ MonoBehaviour:
   heightRange: {x: -0.6, y: 0.4}
   respawnIfCloserThan: 0.2
   keepOnScreenRing: 1
-  gameManager: {fileID: 0}
 --- !u!114 &326723551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,7 +190,6 @@ MonoBehaviour:
   heightRange: {x: -0.6, y: 0.4}
   respawnIfCloserThan: 0.2
   keepOnScreenRing: 1
-  gameManager: {fileID: 0}
 --- !u!1001 &334002029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,14 +198,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1909208580}
     m_Modifications:
-    - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
-      propertyPath: timeGameEnds
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
-      propertyPath: maximumPoints
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: storyline.Array.size
       value: 6
@@ -287,10 +277,6 @@ PrefabInstance:
     - target: {fileID: 6365312527475090667, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6822645678463941781, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
-      propertyPath: m_text
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7228428911082173773, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: m_Pivot.x
@@ -387,10 +373,6 @@ PrefabInstance:
     - target: {fileID: 7228428911082173773, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8756231774214522279, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
-      propertyPath: m_text
-      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -662,7 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   enemyPrefab: {fileID: 6716802041199077153, guid: 41246c066a90aaa4c99508a5561499d8, type: 3}
-  startCount: 2
+  startCount: 1
   maxCount: 12
   minRadius: 0.8
   maxRadius: 1.8

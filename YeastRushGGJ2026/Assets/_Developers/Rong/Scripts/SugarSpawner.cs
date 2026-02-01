@@ -32,6 +32,9 @@ public class SugarSpawner : MonoBehaviour
     [Header("Runtime")]
     public bool keepOnScreenRing = true;
 
+    [Header("UI")]
+    public GameManager_Storyline_UI gameManager;
+
     private readonly List<SugarCube> _alive = new();
 
     void Start()
@@ -103,6 +106,11 @@ public class SugarSpawner : MonoBehaviour
         {
             cube.OnAbsorbed -= HandleAbsorbed;
             _alive.Remove(cube);
+        }
+
+        if (gameManager != null)
+        {
+            gameManager.IncreasePoins(1);
         }
     }
 
