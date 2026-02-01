@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 20
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       propertyPath: m_LocalScale.z
-      value: 20
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,7 +67,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c2e40fa84d53ccd428f640eac126b1fb, type: 2}
+      objectReference: {fileID: -876546973899608171, guid: af1d864cd0877ef4b9bea3b111a4e02d, type: 3}
+    - target: {fileID: -5754084199372789682, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 6819139062842697404, guid: af1d864cd0877ef4b9bea3b111a4e02d, type: 3}
     - target: {fileID: 919132149155446097, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       propertyPath: m_Name
       value: EnyzmeBullet
@@ -82,40 +86,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6380669697020416088}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 9213191417361948843}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8264825373677748861}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7735514127067441958}
   m_SourcePrefab: {fileID: 100100000, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
 --- !u!1 &6750742535547358895 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b276d42363a6d574dbf5216da195dca1, type: 3}
   m_PrefabInstance: {fileID: 5867659526658241534}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &6380669697020416088
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6750742535547358895}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.030072005, y: 0.0092199985, z: 0.0010999998}
-  m_Center: {x: -0.015736002, y: 0.0022599995, z: 0}
 --- !u!54 &9213191417361948843
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,3 +141,24 @@ MonoBehaviour:
   gameObjectHit: {fileID: 0}
   livingTime: 2
   reactToExternalStimuli: 1
+--- !u!65 &7735514127067441958
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6750742535547358895}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.3148331, y: 0.34335232, z: 0.36284146}
+  m_Center: {x: 0.0139724985, y: 0.014350623, z: -0.020334423}
