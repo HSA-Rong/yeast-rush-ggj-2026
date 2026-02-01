@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HandMenu Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6649180505760229910, guid: 80a591a5943c0d94ea4ba01bd42f1a53, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6935554145315339184, guid: 80a591a5943c0d94ea4ba01bd42f1a53, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -415,6 +419,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4088110610454198647, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6499517531677593257, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -570,15 +582,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.35
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -620,6 +632,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4495403859215676505, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_Name
       value: Shield FX_ FREE_9
@@ -656,7 +672,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PotatoArm
   controller: {fileID: 317644428}
-  offset: {x: 0, y: 0, z: -0.23}
+  offset: {x: 0, y: 0, z: 0}
   rotationOffsetEuler: {x: 0, y: 0, z: 0}
 --- !u!4 &1279700360 stripped
 Transform:
@@ -825,15 +841,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.35
+      value: 0.27
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalPosition.x
@@ -861,7 +877,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.38268343
+      value: 0.38268343
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -873,7 +889,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -45
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2534831864490313241, guid: 57bcd39fff9e4314e914469423379203, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4495403859215676505, guid: 57bcd39fff9e4314e914469423379203, type: 3}
       propertyPath: m_Name
@@ -911,7 +931,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PotatoArm
   controller: {fileID: 1554434441}
-  offset: {x: 0, y: 0, z: -0.23}
+  offset: {x: 0, y: 0, z: 0}
   rotationOffsetEuler: {x: 0, y: 0, z: 0}
 --- !u!1001 &1493577259
 PrefabInstance:
