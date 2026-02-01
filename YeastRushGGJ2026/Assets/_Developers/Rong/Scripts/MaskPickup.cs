@@ -12,6 +12,8 @@ public class MaskPickup : MonoBehaviour
     public string[] pickerTags = new[] { "Hand" };
     public float absorbDuration = 0.25f;
     public AnimationCurve scaleCurve = AnimationCurve.EaseInOut(0, 1, 1, 0);
+    public GameObject maskPrefabOnHead;
+    private GameObject maskOnHead;
 
     [Header("Reveal")]
     public float revealSeconds = 20f;
@@ -86,5 +88,9 @@ public class MaskPickup : MonoBehaviour
 
         OnPicked?.Invoke(this);
         Destroy(gameObject);
+
+        maskOnHead = Instantiate(maskPrefabOnHead, Camera.main.transform);
+        maskOnHead.transform.localPosition = Vector3.zero;
+        maskOnHead.GetComponent<destroyMaskOnHead>().destroyAfterSeconds = revealSeconds;
     }
 }
