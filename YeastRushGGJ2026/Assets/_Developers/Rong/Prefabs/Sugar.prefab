@@ -196,6 +196,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   absorbSfx: {fileID: 8300000, guid: 40feab4b3592c6842983f09d14f597bd, type: 3}
+  enemyAbsorbSfx: {fileID: 8300000, guid: 44b821a686b3e2d459d8d2985590e0e5, type: 3}
+  sfxVolume: 0.6
 --- !u!1 &5992860850341120487
 GameObject:
   m_ObjectHideFlags: 0

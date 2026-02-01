@@ -106,6 +106,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   revealSeconds: 10
   pickupSfx: {fileID: 8300000, guid: 17248a91c7a60f4468ecc1d0805ae64b, type: 3}
+  sfxVolume: 1
 --- !u!1 &6288588380495085605
 GameObject:
   m_ObjectHideFlags: 0

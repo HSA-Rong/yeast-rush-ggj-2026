@@ -26,11 +26,13 @@ public class enzymeLivingController : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag == "MultiSugar")
+        // if (collision.gameObject.tag == "MultiSugar")
+        if (collision.CompareTag("MultiSugar") || (collision.transform.parent != null && collision.transform.parent.CompareTag("MultiSugar")))
         {
             gameObjectHit = collision.gameObject;
-            Destroy(this.gameObject);   
-            Destroy(collision.gameObject);   
+            Destroy(this.gameObject);
+            // Destroy(collision.gameObject);
+            // Destroy(collision.transform.root.gameObject);
         }
     }
 }

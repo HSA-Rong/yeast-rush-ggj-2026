@@ -28,6 +28,8 @@ public class SugarCube : MonoBehaviour
 
     [Header("Audio")]
     public AudioClip absorbSfx;
+    public AudioClip enemyAbsorbSfx;
+    public float sfxVolume = 0.8f;
 
     void Awake()
     {
@@ -67,10 +69,24 @@ public class SugarCube : MonoBehaviour
         {
             if (other.CompareTag(absorberTags[i]) || other.transform.root.CompareTag(absorberTags[i]))
             {
+                /*
                 if (absorbSfx != null)
                 {
-                    AudioSource.PlayClipAtPoint(absorbSfx, transform.position, 0.8f);
+                    AudioSource.PlayClipAtPoint(absorbSfx, transform.position, sfxVolume);
                 }
+                */
+                AudioClip clipToPlay = absorbSfx; // eat by yeast
+
+                if (other.CompareTag("Enemy") || other.transform.root.CompareTag("Enemy"))
+                {
+                    clipToPlay = enemyAbsorbSfx != null ? enemyAbsorbSfx : absorbSfx;
+                }
+
+                if (clipToPlay != null)
+                {
+                    AudioSource.PlayClipAtPoint(clipToPlay, transform.position, sfxVolume);
+                }
+
                 foreach (Transform child in Camera.main.transform)
                 {
                     if (child.CompareTag("Potato"))

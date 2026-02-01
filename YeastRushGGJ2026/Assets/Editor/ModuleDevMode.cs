@@ -7,142 +7,114 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Toggles Developer Mode via an in-game menu and manages the developer workflow scenes.
-/// When enabled, ensures required scenes (Persistent, Environment, and Programmable) are loaded.
-/// When disabled, returns to the normal runtime setup.
+/// Quick scene workspace loader:
+/// - Developer (Sample): Persistent + Main + Sample (active: Sample)
+/// - Tester (Gameplay):  Persistent + Main + Gameplay (active: Gameplay)
+/// No save-protection. Purpose: open required scenes fast.
 /// </summary>
 
 public static class ModuleDevMode
 {
-    const string PATH_PERSISTENT = "Assets/_Core/Scenes/Persistent.unity";
-    const string PATH_MAIN = "Assets/Scenes/MainScene.unity";
-    const string PATH_SAMPLE = "Assets/Scenes/SampleScene.unity";
+    // Core
+    private const string PATH_PERSISTENT = "Assets/_Core/Scenes/Persistent.unity";
+    private const string PATH_MAIN = "Assets/Scenes/MainScene.unity";
 
-    const string PREF_KEY = "ModuleDevMode_Enabled";
+    // Workspaces
+    private const string PATH_SAMPLE = "Assets/Scenes/SampleScene.unity";
+    private const string PATH_GAMEPLAY = "Assets/_Gameplay/Scenes/GameplayScene.unity";
 
-    static readonly string[] PROTECTED_SCENES = new[]
-        {
-            PATH_PERSISTENT,
-            PATH_MAIN,
-        };
+    // Optional: remember last workspace
+    private const string PREF_WORKSPACE = "GoYeast.SceneWorkspace.Last";
 
-    [MenuItem("GoYeast/Enable Dev Mode", priority = 10)]
-    public static void Enable()
+    private const string MENU_ROOT = "GoYeast/";
+
+    private enum Workspace
+    {
+        DeveloperSample = 0,
+        TesterGameplay = 1,
+    }
+
+    [MenuItem(MENU_ROOT + "Developer (Sample)", priority = 10)]
+    public static void OpenDeveloperSample()
     {
         if (!ConfirmSaveIfDirty()) return;
-
-        EditorPrefs.SetBool(PREF_KEY, true);
-
-        OpenScenesForDev();
-
-        // Try to activate the protected scene as read-only
-        SetReadonlyFlag(true);
-
-        EditorUtility.DisplayDialog("Module Development Mode",
-    "Enabled:\n- Automatically open Persistent / MainScene / SampleScene\n- Set SampleScene as the active scene\n- Disable saving for Persistent / MainScene",
-    "OK");
+        OpenWorkspace(Workspace.DeveloperSample);
     }
 
-    [MenuItem("GoYeast/Disable Dev Mode", priority = 11)]
-    public static void Disable()
+    [MenuItem(MENU_ROOT + "Tester (Gameplay)", priority = 11)]
+    public static void OpenTesterGameplay()
     {
         if (!ConfirmSaveIfDirty()) return;
-
-        EditorPrefs.DeleteKey(PREF_KEY);
-        SetReadonlyFlag(false);
-
-        EditorUtility.DisplayDialog("Personal Scene Development Mode",
-    "Disabled: Saving all scenes is now allowed (still recommended not to modify core scenes directly).",
-    "OK");
+        OpenWorkspace(Workspace.TesterGameplay);
     }
 
-    [MenuItem("GoYeast/Enable Dev Mode", true)]
-    static bool ValidateEnable() => !EditorPrefs.GetBool(PREF_KEY, false);
-
-    [MenuItem("GoYeast/Disable Dev Mode", true)]
-    static bool ValidateDisable() => EditorPrefs.GetBool(PREF_KEY, false);
-
-    static void OpenScenesForDev()
+    // Optional: checkmarks (shows which one was used last)
+    [MenuItem(MENU_ROOT + "Developer (Sample)", true)]
+    private static bool ValidateDeveloperSample()
     {
-        var persistent = EditorSceneManager.OpenScene(PATH_PERSISTENT, OpenSceneMode.Single);
-        var houseMain = EditorSceneManager.OpenScene(PATH_MAIN, OpenSceneMode.Additive);
-
-        Scene sample;
-        if (File.Exists(PATH_SAMPLE))
-            sample = EditorSceneManager.OpenScene(PATH_SAMPLE, OpenSceneMode.Additive);
-        else
-            sample = EditorSceneManager.NewScene(NewSceneSetup.DefaultGameObjects, NewSceneMode.Additive);
-
-        EditorSceneManager.SetActiveScene(sample);
+        Menu.SetChecked(MENU_ROOT + "Developer (Sample)", GetLast() == Workspace.DeveloperSample);
+        return true;
     }
 
-    static bool ConfirmSaveIfDirty()
+    [MenuItem(MENU_ROOT + "Tester (Gameplay)", true)]
+    private static bool ValidateTesterGameplay()
     {
-        if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
-            return true;
-        return false;
+        Menu.SetChecked(MENU_ROOT + "Tester (Gameplay)", GetLast() == Workspace.TesterGameplay);
+        return true;
     }
 
-    static void SetReadonlyFlag(bool readOnly)
+    private static void OpenWorkspace(Workspace ws)
     {
-        foreach (var p in PROTECTED_SCENES)
+        // Always load Persistent as Single, then add others.
+        var persistent = OpenSceneOrWarn(PATH_PERSISTENT, OpenSceneMode.Single);
+        if (!persistent.IsValid()) return;
+
+        var main = OpenSceneOrWarn(PATH_MAIN, OpenSceneMode.Additive);
+        if (!main.IsValid()) return;
+
+        string thirdPath = ws == Workspace.DeveloperSample ? PATH_SAMPLE : PATH_GAMEPLAY;
+        var third = OpenSceneOrWarn(thirdPath, OpenSceneMode.Additive);
+        if (!third.IsValid()) return;
+
+        EditorSceneManager.SetActiveScene(third);
+        SetLast(ws);
+
+        EditorUtility.DisplayDialog(
+            "Scene Workspace Loaded",
+            ws == Workspace.DeveloperSample
+                ? "Opened: Persistent + MainScene + SampleScene (Active: SampleScene)"
+                : "Opened: Persistent + MainScene + Gameplay (Active: Gameplay)",
+            "OK");
+    }
+
+    private static Scene OpenSceneOrWarn(string path, OpenSceneMode mode)
+    {
+        var full = Path.GetFullPath(path);
+        if (!File.Exists(full))
         {
-            var full = Path.GetFullPath(p);
-            if (!File.Exists(full)) continue;
-            var attr = File.GetAttributes(full);
-            if (readOnly) attr |= FileAttributes.ReadOnly;
-            else attr &= ~FileAttributes.ReadOnly;
-            File.SetAttributes(full, attr);
+            EditorUtility.DisplayDialog(
+                "Scene Not Found",
+                $"Missing scene file:\n{path}\n\nPlease check the path or add the scene to the project.",
+                "OK");
+            return default;
         }
+        return EditorSceneManager.OpenScene(path, mode);
     }
 
-    /// <summary>
-    /// When in "Module Development Mode" block saving for protected scenes.
-    /// </summary>
-    public class ProtectCoreScenesSaver : AssetModificationProcessor
+    private static bool ConfirmSaveIfDirty()
     {
-        static readonly HashSet<string> Protected = new HashSet<string>(new[]
-        {
-            "Assets/_Core/Scenes/Persistent.unity",
-            "Assets/Scenes/MainScene.unity",
-        });
+        // Unity will show the "Do you want to save?" dialog for modified scenes.
+        return EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+    }
 
-        static bool DevModeOn => EditorPrefs.GetBool("ModuleDevMode_Enabled", false);
+    private static Workspace GetLast()
+    {
+        return (Workspace)EditorPrefs.GetInt(PREF_WORKSPACE, (int)Workspace.DeveloperSample);
+    }
 
-        public static string[] OnWillSaveAssets(string[] paths)
-        {
-            if (!DevModeOn || paths == null || paths.Length == 0) return paths;
-
-            var list = new List<string>(paths.Length);
-            bool blockedAny = false;
-
-            foreach (var p in paths)
-            {
-                if (p.EndsWith(".unity"))
-                {
-                    var norm = p.Replace('\\', '/');
-
-                    if (Protected.Contains(norm))
-                    {
-                        blockedAny = true;
-                        Debug.LogWarning($"Blocked saving of protected scene: {norm} (Personal Scene Development Mode enabled)");
-                        continue;
-                    }
-                }
-                list.Add(p);
-            }
-
-            if (blockedAny)
-            {
-                EditorUtility.DisplayDialog(
-    "Saving Core Scene Blocked",
-    "You are currently in 'Personal Scene Development Mode', where modifying or saving Persistent or MainScene is not allowed.\n" +
-    "Please make your changes in your personal or module scenes instead.",
-    "OK");
-            }
-
-            return list.ToArray();
-        }
+    private static void SetLast(Workspace ws)
+    {
+        EditorPrefs.SetInt(PREF_WORKSPACE, (int)ws);
     }
 }
 #endif

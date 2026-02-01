@@ -18,6 +18,7 @@ public class MaskPickup : MonoBehaviour
 
     [Header("Audio")]
     public AudioClip pickupSfx;
+    public float sfxVolume = 0.8f;
 
     private bool _picked;
     private Vector3 _startPos;
@@ -55,7 +56,7 @@ public class MaskPickup : MonoBehaviour
             if (other.CompareTag(pickerTags[i]) || other.transform.root.CompareTag(pickerTags[i]))
             {
                 if (pickupSfx != null)
-                    AudioSource.PlayClipAtPoint(pickupSfx, transform.position, 0.9f);
+                    AudioSource.PlayClipAtPoint(pickupSfx, transform.position, sfxVolume);
 
                 // Reveal enemies for N seconds
                 if (EnemyVisibilityManager.Instance != null)
