@@ -66,17 +66,18 @@ public class ShootEnzymes : MonoBehaviour
                 // Instantiate enzyme at correct controller position and rotation
                 if (i == rightControllerIndex) // Assuming first action is for right controller    
                 {            
-                    GameObject enzyme = Instantiate(enzymePrefab, rightController.transform.position, rightController.transform.rotation);
+                    GameObject enzyme = Instantiate(enzymePrefab, rightController.transform.position, rightController.transform.rotation * Quaternion.Euler(0, 180, 0));
                     enzyme.GetComponent<Rigidbody>().linearVelocity = rightController.transform.forward * 10f; // Adjust speed as needed
                     lastShotTime = Time.time;
                 }
                 else if (i == leftControllerIndex) // Assuming second action is for left controller
                     {
-                        GameObject enzyme = Instantiate(enzymePrefab, leftController.transform.position, leftController.transform.rotation);
+                        GameObject enzyme = Instantiate(enzymePrefab, leftController.transform.position, leftController.transform.rotation * Quaternion.Euler(0, 180, 0));
                         enzyme.GetComponent<Rigidbody>().linearVelocity = leftController.transform.forward * 10f; // Adjust speed as needed
                         lastShotTime = Time.time;
                     }
             }
+
 
             // your movement code here
 //            Debug.Log("Activate Value: " + moveValue);
