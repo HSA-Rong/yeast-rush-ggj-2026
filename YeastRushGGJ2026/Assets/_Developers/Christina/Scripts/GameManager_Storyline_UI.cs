@@ -45,7 +45,7 @@ public class GameManager_Storyline_UI : MonoBehaviour
         startTime = Time.realtimeSinceStartup;
         audioS = this.gameObject.AddComponent<AudioSource>();
     }
-    void OnAwake()
+    void Awake()
     {
         rewardInfo.SetActive(false);
         rewardInfo.SetActive(true);
@@ -83,6 +83,9 @@ public class GameManager_Storyline_UI : MonoBehaviour
         pointDisplay.text = points.ToString();
         rewardInfo.SetActive(false);
         rewardInfo.SetActive(true);
+
+        Debug.Log($"points={points}, pointDisplay={(pointDisplay == null ? "NULL" : pointDisplay.name)}");
+
     }
     public void IncreaseTime(int value = 1)
     {

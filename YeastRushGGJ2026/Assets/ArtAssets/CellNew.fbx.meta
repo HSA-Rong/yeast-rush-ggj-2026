@@ -1,24 +1,9 @@
 fileFormatVersion: 2
-guid: fe9615b9e44a10146812381093ae27e3
+guid: 5d2d96a1c218f6146bc5cdf1956f932e
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FaceCry
-    second: {fileID: 2100000, guid: a1a241747a4884344bf009c8c2b7b6b1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FaceHappy
-    second: {fileID: 2100000, guid: 1c5ef0da7f3931645aff2ba82ae8b597, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sugar
-    second: {fileID: 2100000, guid: c33c18b4f3d9afa488cb3ad68668a961, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
