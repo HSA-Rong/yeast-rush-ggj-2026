@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: maximumPoints
-      value: 30
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: storyline.Array.size
@@ -309,6 +309,18 @@ PrefabInstance:
       propertyPath: storyline.Array.data[7].audioInstruction
       value: 
       objectReference: {fileID: 8300000, guid: 33cc4d43a5523fb48851826aaad38ca7, type: 3}
+    - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
+      propertyPath: storyline.Array.data[0].pointsToReachNextLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
+      propertyPath: storyline.Array.data[1].pointsToReachNextLevel
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
+      propertyPath: storyline.Array.data[2].pointsToReachNextLevel
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4383426447196927306, guid: 6f5e85ab4eabd3644aeeb8daffccb296, type: 3}
       propertyPath: storyline.Array.data[6].pointsToReachNextLevel
       value: 20
