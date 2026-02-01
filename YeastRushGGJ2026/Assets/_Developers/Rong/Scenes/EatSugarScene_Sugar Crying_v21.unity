@@ -205,7 +205,6 @@ MonoBehaviour:
   respawnIfCloserThan: 0.2
   keepOnScreenRing: 1
   gameManager: {fileID: 0}
-  cooldownTimer: 0.5
 --- !u!114 &326723551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +225,6 @@ MonoBehaviour:
   respawnIfCloserThan: 0.2
   keepOnScreenRing: 1
   gameManager: {fileID: 334002038}
-  cooldownTimer: 0.5
 --- !u!1001 &334002029
 PrefabInstance:
   m_ObjectHideFlags: 0

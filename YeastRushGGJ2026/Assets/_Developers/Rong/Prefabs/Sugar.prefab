@@ -198,6 +198,10 @@ MonoBehaviour:
   absorbSfx: {fileID: 8300000, guid: 40feab4b3592c6842983f09d14f597bd, type: 3}
   enemyAbsorbSfx: {fileID: 8300000, guid: 44b821a686b3e2d459d8d2985590e0e5, type: 3}
   sfxVolume: 0.6
+  faceRenderer: {fileID: 4745303430601379502}
+  sadMaterial: {fileID: 2100000, guid: a1a241747a4884344bf009c8c2b7b6b1, type: 2}
+  enemyCrySfx: {fileID: 8300000, guid: b318b9e2e5aac8440a56dc63d32e42c4, type: 3}
+  enemyVanishDelay: 2
 --- !u!1 &5992860850341120487
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,5 +319,10 @@ PrefabInstance:
 --- !u!4 &600101508566225355 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fe9615b9e44a10146812381093ae27e3, type: 3}
+  m_PrefabInstance: {fileID: 1142019129591035424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4745303430601379502 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3601771337979692914, guid: fe9615b9e44a10146812381093ae27e3, type: 3}
   m_PrefabInstance: {fileID: 1142019129591035424}
   m_PrefabAsset: {fileID: 0}

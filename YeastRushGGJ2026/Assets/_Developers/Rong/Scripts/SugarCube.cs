@@ -29,10 +29,23 @@ public class SugarCube : MonoBehaviour
     [Header("Audio")]
     public AudioClip absorbSfx;
     public AudioClip enemyAbsorbSfx;
+    public AudioClip enemyCrySfx;
     public float sfxVolume = 0.8f;
+
+    [Header("Crying")]
+    public Renderer faceRenderer;
+    public Material sadMaterial;
+    public float enemyLickDelay = 1.0f;
+    public float enemyVanishDelay = 2.0f;
+    
+    private Collider _collider;
 
     void Awake()
     {
+        if (faceRenderer == null)
+            faceRenderer = GetComponentInChildren<Renderer>(true);
+        _collider = GetComponent<Collider>();
+
         _startPos = transform.position;
         _startScale = transform.localScale;
         _seed = UnityEngine.Random.value * 10f;
@@ -77,27 +90,42 @@ public class SugarCube : MonoBehaviour
                 */
                 AudioClip clipToPlay = absorbSfx; // eat by yeast
 
-                if (other.CompareTag("Enemy") || other.transform.root.CompareTag("Enemy"))
+                bool eatenByEnemy = other.CompareTag("Enemy") || other.transform.root.CompareTag("Enemy");
+
+                if (eatenByEnemy)
                 {
                     clipToPlay = enemyAbsorbSfx != null ? enemyAbsorbSfx : absorbSfx;
+                    StartCoroutine(EnemyEatSequenceRoutine());
+                }
+                else
+                {
+                    // original (Hand)
+                    if (absorbSfx != null)
+                        AudioSource.PlayClipAtPoint(absorbSfx, transform.position, sfxVolume);
+
+                    StartCoroutine(AbsorbRoutine());
                 }
 
+                /*
                 if (clipToPlay != null)
                 {
                     AudioSource.PlayClipAtPoint(clipToPlay, transform.position, sfxVolume);
                 }
+                */
 
-                foreach (Transform child in Camera.main.transform)
+                if (Camera.main != null)
                 {
-                    if (child.CompareTag("Potato"))
+                    foreach (Transform child in Camera.main.transform)
                     {
-                        Potato potatoScript = child.GetComponent<Potato>();
-                        potatoScript.hasEatenSugar = true;
-                        break;
+                        if (child.CompareTag("Potato"))
+                        {
+                            Potato potatoScript = child.GetComponent<Potato>();
+                            potatoScript.hasEatenSugar = true;
+                            break;
+                        }
                     }
                 }
 
-                StartCoroutine(AbsorbRoutine());
                 return;
             }
         }
@@ -123,4 +151,34 @@ public class SugarCube : MonoBehaviour
         OnAbsorbed?.Invoke(this);
         Destroy(gameObject);
     }
+
+    System.Collections.IEnumerator EnemyEatSequenceRoutine()
+    {
+        IsAbsorbing = true;
+
+        if (_collider != null) _collider.enabled = false;
+
+        if (enemyAbsorbSfx != null)
+        {
+            AudioSource.PlayClipAtPoint(enemyAbsorbSfx, transform.position, sfxVolume);
+        }
+
+        yield return new WaitForSeconds(enemyLickDelay);
+
+        if (faceRenderer != null && sadMaterial != null)
+        {
+            faceRenderer.material = sadMaterial;
+        }
+
+        if (enemyCrySfx != null)
+        {
+            AudioSource.PlayClipAtPoint(enemyCrySfx, transform.position, sfxVolume);
+        }
+
+        yield return new WaitForSeconds(enemyVanishDelay);
+
+        OnAbsorbed?.Invoke(this);
+        Destroy(gameObject);
+    }
+
 }
