@@ -73,6 +73,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f01f3a3f4ab0744ca4af16028948abc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  destroyAfterSeconds: 20
 --- !u!1001 &6186568818996995485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,6 +166,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7498142206689309559, guid: cab763c256f4dd5458715a4a610ce339, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: cbdfa718d3bdd7743bfd8e3dff78f81f, type: 2}
+    - target: {fileID: 7498142206689309559, guid: cab763c256f4dd5458715a4a610ce339, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8c9b94a457fc0d74297f92b08e22b496, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -4001262263148465094, guid: cab763c256f4dd5458715a4a610ce339, type: 3}

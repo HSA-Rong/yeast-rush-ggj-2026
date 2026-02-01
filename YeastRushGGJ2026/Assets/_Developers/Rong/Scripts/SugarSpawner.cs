@@ -111,6 +111,7 @@ public class SugarSpawner : MonoBehaviour
         if (gameManager != null)
         {
             gameManager.IncreasePoins(1);
+            Debug.Log("-------Sugar spawner increase point successfully");
         }
     }
 
